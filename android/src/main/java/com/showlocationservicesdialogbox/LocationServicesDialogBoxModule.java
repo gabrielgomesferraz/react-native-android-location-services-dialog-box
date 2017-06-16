@@ -42,7 +42,7 @@ class LocationServicesDialogBoxModule extends ReactContextBaseJavaModule impleme
         if (currentActivity == null || map == null || promiseCallback == null) return;
         LocationManager locationManager = (LocationManager) currentActivity.getSystemService(Context.LOCATION_SERVICE);
 
-        if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) || !locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
+        if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) && !locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
             if (activityResult) {
                 promiseCallback.reject(new Throwable("disabled"));
             } else {
